@@ -3,182 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QuickSplit Pro | 2026</title>
+    <title>QuickSplit GBP | 2026</title>
     <style>
-        :root {
-            --primary: #8b5cf6;
-            --bg: #020617;
-            --card-bg: rgba(30, 41, 59, 0.7);
-            --text: #f8fafc;
-        }
-
-        body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background-color: var(--bg);
-            background-image: radial-gradient(at 0% 0%, #1e1b4b 0, transparent 50%), 
-                              radial-gradient(at 100% 0%, #312e81 0, transparent 50%);
-            color: var(--text);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-        }
-
-        .container {
-            background: var(--card-bg);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 2.5rem;
-            border-radius: 28px;
-            width: 90%;
-            max-width: 420px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
-        }
-
-        h1 {
-            font-size: 1.75rem;
-            margin-bottom: 0.5rem;
-            text-align: center;
-            background: linear-gradient(to right, #a78bfa, #f472b6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        p.subtitle {
-            text-align: center;
-            color: #94a3b8;
-            font-size: 0.9rem;
-            margin-bottom: 2rem;
-        }
-
-        .input-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin-bottom: 1.25rem;
-        }
-
-        .input-group {
-            margin-bottom: 1.25rem;
-        }
-
-        label {
-            display: block;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.5rem;
-            color: #64748b;
-        }
-
-        input {
-            width: 100%;
-            padding: 0.85rem;
-            background: rgba(15, 23, 42, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 14px;
-            color: white;
-            font-size: 1rem;
-            box-sizing: border-box;
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        input:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.2);
-        }
-
-        .result-card {
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-            margin-top: 2rem;
-            padding: 1.5rem;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
-        }
-
-        .result-label {
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            opacity: 0.9;
-        }
-
-        .result-value {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin: 0.5rem 0;
-        }
-
-        .summary {
-            font-size: 0.8rem;
-            color: #cbd5e1;
-            border-top: 1px solid rgba(255,255,255,0.2);
-            padding-top: 0.75rem;
-            margin-top: 0.5rem;
-        }
+        :root { --primary: #0ea5e9; --bg: #0f172a; --card: rgba(30, 41, 59, 0.8); --text: #f8fafc; }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); display: flex; justify-content: center; padding: 20px; margin: 0; }
+        .container { background: var(--card); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.1); padding: 2rem; border-radius: 24px; width: 100%; max-width: 480px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); }
+        h1 { text-align: center; color: var(--primary); font-size: 1.5rem; margin-bottom: 0.2rem; }
+        .currency-label { text-align: center; font-size: 0.8rem; color: #64748b; margin-bottom: 1.5rem; }
+        .section { margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        label { display: block; font-size: 0.7rem; text-transform: uppercase; font-weight: 700; margin-bottom: 0.5rem; color: #94a3b8; }
+        input, select { width: 100%; padding: 0.75rem; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: white; margin-bottom: 1rem; box-sizing: border-box; }
+        button { width: 100%; padding: 0.8rem; border: none; border-radius: 12px; font-weight: 700; cursor: pointer; transition: 0.2s; }
+        .btn-primary { background: var(--primary); color: white; margin-top: 5px; }
+        .btn-secondary { background: rgba(255,255,255,0.1); color: white; font-size: 0.7rem; margin-top: 10px; }
+        .expense-item { display: flex; justify-content: space-between; padding: 0.6rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 0.9rem; }
+        .balance-row { display: flex; justify-content: space-between; padding: 1rem; border-radius: 14px; margin-bottom: 0.6rem; background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255,255,255,0.05); }
+        .owed { color: #38bdf8; font-weight: bold; } 
+        .owes { color: #f43f5e; font-weight: bold; }
+        .total-banner { background: #1e293b; padding: 10px; border-radius: 10px; text-align: center; font-size: 0.85rem; margin-bottom: 1rem; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>QuickSplit Pro</h1>
-    <p class="subtitle">Smart grouping for singles & couples</p>
-    
-    <div class="input-group">
-        <label for="bill">Bill Total ($)</label>
-        <input type="number" id="bill" placeholder="0.00" step="0.01" oninput="calculate()">
-    </div>
+    <h1>QuickSplit Ledger</h1>
+    <div class="currency-label">All amounts in GBP (£)</div>
 
-    <div class="input-row">
-        <div class="input-group">
-            <label for="singles">Singles</label>
-            <input type="number" id="singles" value="1" min="0" oninput="calculate()">
+    <div class="section">
+        <label>1. Add People (Singles or Couples)</label>
+        <div style="display: flex; gap: 8px;">
+            <input type="text" id="newName" placeholder="Name">
+            <button class="btn-primary" style="width: 70px;" onclick="addPerson()">Add</button>
         </div>
-        <div class="input-group">
-            <label for="couples">Couples (2-as-1)</label>
-            <input type="number" id="couples" value="0" min="0" oninput="calculate()">
-        </div>
+        <div id="peopleList" style="font-size: 0.8rem; color: #64748b;">Group: (Empty)</div>
     </div>
 
-    <div class="input-group">
-        <label for="tip">Tip Percentage (%)</label>
-        <input type="number" id="tip" value="15" min="0" oninput="calculate()">
+    <div class="section">
+        <label>2. Log an Expense</label>
+        <input type="text" id="expDesc" placeholder="What was it for? (e.g. Pub)">
+        <input type="number" id="expAmt" placeholder="0.00" step="0.01">
+        <label>Who Paid?</label>
+        <select id="whoPaid"></select>
+        <button class="btn-primary" onclick="addExpense()">Add Bill</button>
     </div>
 
-    <div class="result-card">
-        <div class="result-label">Amount per "Wallet"</div>
-        <div class="result-value" id="perPerson">$0.00</div>
-        <div class="summary" id="summary">Total Wallets: 1</div>
+    <div class="section">
+        <div class="total-banner" id="totalPot">Total Spent: £0.00</div>
+        <label>Expense History</label>
+        <div id="expenseList"></div>
+        <button class="btn-secondary" onclick="resetApp()">Clear Everything</button>
+    </div>
+
+    <div class="balances">
+        <label>The Settlement</label>
+        <div id="balanceResults"></div>
     </div>
 </div>
 
 <script>
-    function calculate() {
-        const bill = parseFloat(document.getElementById('bill').value) || 0;
-        const singles = parseInt(document.getElementById('singles').value) || 0;
-        const couples = parseInt(document.getElementById('couples').value) || 0;
-        const tipPercent = parseFloat(document.getElementById('tip').value) || 0;
+    let participants = [];
+    let expenses = [];
 
-        // Total "Wallets" (Paying Entities)
-        const totalWallets = singles + couples;
+    function addPerson() {
+        const name = document.getElementById('newName').value.trim();
+        if (name && !participants.includes(name)) {
+            participants.push(name);
+            document.getElementById('newName').value = '';
+            updateUI();
+        }
+    }
 
-        if (totalWallets <= 0) {
-            document.getElementById('perPerson').textContent = "$0.00";
-            document.getElementById('summary').textContent = "Total Wallets: 0";
+    function addExpense() {
+        const desc = document.getElementById('expDesc').value;
+        const amt = parseFloat(document.getElementById('expAmt').value);
+        const payer = document.getElementById('whoPaid').value;
+
+        if (desc && !isNaN(amt) && amt > 0 && payer) {
+            expenses.push({ desc, amt, payer });
+            document.getElementById('expDesc').value = '';
+            document.getElementById('expAmt').value = '';
+            updateUI();
+        }
+    }
+
+    function resetApp() {
+        if(confirm("Clear all data?")) {
+            participants = [];
+            expenses = [];
+            updateUI();
+        }
+    }
+
+    function updateUI() {
+        document.getElementById('peopleList').textContent = `Group: ${participants.length ? participants.join(', ') : '(Empty)'}`;
+        const select = document.getElementById('whoPaid');
+        select.innerHTML = participants.map(p => `<option value="${p}">${p}</option>`).join('');
+
+        const list = document.getElementById('expenseList');
+        list.innerHTML = expenses.map((e, idx) => `
+            <div class="expense-item">
+                <span><strong>${e.desc}</strong> <small>(${e.payer})</small></span>
+                <span>£${e.amt.toFixed(2)}</span>
+            </div>
+        `).join('');
+
+        calculateBalances();
+    }
+
+    function calculateBalances() {
+        if (participants.length === 0) {
+            document.getElementById('balanceResults').innerHTML = '';
+            document.getElementById('totalPot').textContent = "Total Spent: £0.00";
             return;
         }
 
-        const totalWithTip = bill * (1 + (tipPercent / 100));
-        const perWallet = totalWithTip / totalWallets;
+        let totalSpent = 0;
+        let paidByPerson = {};
+        participants.forEach(p => paidByPerson[p] = 0);
 
-        document.getElementById('perPerson').textContent = 
-            `$${perWallet.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+        expenses.forEach(e => {
+            totalSpent += e.amt;
+            paidByPerson[e.payer] += e.amt;
+        });
+
+        document.getElementById('totalPot').textContent = `Total Spent: £${totalSpent.toFixed(2)}`;
+
+        // Round the share to 2 decimal places
+        const sharePerPerson = Math.round((totalSpent / participants.length) * 100) / 100;
         
-        document.getElementById('summary').textContent = `Splitting $${totalWithTip.toFixed(2)} across ${totalWallets} wallets`;
+        const resultsDiv = document.getElementById('balanceResults');
+        resultsDiv.innerHTML = '';
+
+        participants.forEach(p => {
+            // Balance = (What they paid) - (Their fair share)
+            const balance = paidByPerson[p] - sharePerPerson;
+            const row = document.createElement('div');
+            row.className = 'balance-row';
+            
+            const formattedBalance = Math.abs(balance).toFixed(2);
+
+            if (balance > 0.005) { // Owed money
+                row.innerHTML = `<span>${p}</span> <span class="owed">is owed £${formattedBalance}</span>`;
+            } else if (balance < -0.005) { // Owes money
+                row.innerHTML = `<span>${p}</span> <span class="owes">owes £${formattedBalance}</span>`;
+            } else {
+                row.innerHTML = `<span>${p}</span> <span>Settled Up</span>`;
+            }
+            resultsDiv.appendChild(row);
+        });
     }
 </script>
 
